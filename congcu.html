@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cong Cu Giao Vien Chu Nhiem - Nhom 8</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Nhúng jQuery Mục 6.2, Bootstrap JS và app.js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="bg-light">
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm"
+      >
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html"
+            >GVCN - K66 NHOM 8</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuchinh"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menuchinh">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Trang chủ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="hoatdong.html">Kế hoạch lớp</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="congcu.html">Công cụ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="bieumau.html"
+                  >Hỏi đáp &amp; Biểu mẫu</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="lienhe.html">Liên hệ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container my-4">
+      <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">CÔNG CỤ HỖ TRỢ GIÁO VIÊN CHỦ NHIỆM</h1>
+        <p class="text-muted">
+          Quản lý điểm số, phân loại học sinh và bốc thăm ngẫu nhiên
+        </p>
+      </div>
+
+      <!-- Khối bốc thăm và thống kê nhanh -->
+      <div class="row g-3 mb-4">
+        <!-- 1. Bốc thăm gọi tên ngẫu nhiên -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100 border-primary">
+            <div
+              class="card-body text-center d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h2 class="h5 card-title text-primary fw-bold">
+                  🎲 Bốc thăm học sinh ngẫu nhiên
+                </h2>
+                <p class="card-text text-secondary small">
+                  Dùng khi kiểm tra bài cũ hoặc mời phát biểu
+                </p>
+                <div
+                  id="ketqua"
+                  class="p-3 my-2 bg-light border rounded fw-bold fs-5 text-danger"
+                >
+                  Chưa chọn học sinh
+                </div>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  id="nutboctham"
+                  class="btn btn-outline-primary fw-bold"
+                >
+                  Gọi tên ngẫu nhiên
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Thống kê nhanh (jQuery slideToggle đóng mở) -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100 border-success">
+            <div class="card-body text-center">
+              <h2 class="h5 card-title text-success fw-bold">
+                📊 Thống kê điểm số lớp học
+              </h2>
+              <p class="card-text text-secondary small">
+                Tự động tính toán tức thời theo dữ liệu bảng
+              </p>
+              <button
+                type="button"
+                id="nutdongmo"
+                class="btn btn-sm btn-outline-success mb-2"
+              >
+                Ẩn / Hiện thống kê
+              </button>
+
+              <div id="hopthongke" class="row text-start g-2">
+                <div class="col-6">
+                  <span class="badge bg-secondary p-2 w-100 text-start"
+                    >Sĩ số: <b id="siso">0</b></span
+                  >
+                </div>
+                <div class="col-6">
+                  <span class="badge bg-primary p-2 w-100 text-start"
+                    >Điểm TB: <b id="diemtb">0.0</b></span
+                  >
+                </div>
+                <div class="col-6">
+                  <span class="badge bg-success p-2 w-100 text-start"
+                    >Điểm Max: <b id="diemmax">0.0</b></span
+                  >
+                </div>
+                <div class="col-6">
+                  <span class="badge bg-danger p-2 w-100 text-start"
+                    >Điểm Min: <b id="diemmin">0.0</b></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khối form thêm học sinh mới (Validation) -->
+      <section class="card shadow-sm mb-4">
+        <div class="card-header bg-white fw-bold text-primary">
+          ➕ Nhập thêm điểm kiểm tra học sinh
+        </div>
+        <div class="card-body">
+          <form id="formnhap" novalidate>
+            <div class="row g-3">
+              <div class="col-md-5">
+                <label for="hoten" class="form-label fw-bold"
+                  >Họ và tên học sinh <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="hoten"
+                  placeholder="Ví dụ: Lò Thị Hoa"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Vui lòng nhập họ tên học sinh.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="diem" class="form-label fw-bold"
+                  >Điểm kiểm tra (0 - 10)
+                  <span class="text-danger">*</span></label
+                >
+                <input
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="10"
+                  class="form-control"
+                  id="diem"
+                  placeholder="8.5"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Điểm phải là số từ 0.0 đến 10.0.
+                </div>
+              </div>
+
+              <div class="col-md-4 d-flex align-items-end gap-2">
+                <button type="submit" class="btn btn-primary w-100 fw-bold">
+                  Thêm vào bảng
+                </button>
+                <button
+                  type="button"
+                  id="nutreset"
+                  class="btn btn-secondary fw-bold text-nowrap"
+                >
+                  Đặt lại
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Khối tìm kiếm, lọc và bảng render dữ liệu -->
+      <section class="card shadow-sm">
+        <div class="card-body">
+          <div class="row g-2 mb-3">
+            <div class="col-md-8">
+              <label for="timkiem" class="visually-hidden">Tìm kiếm</label>
+              <input
+                type="text"
+                id="timkiem"
+                class="form-control"
+                placeholder="🔍 Tìm kiếm theo tên học sinh..."
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="lochocluc" class="visually-hidden">Lọc học lực</label>
+              <select id="lochocluc" class="form-select">
+                <option value="tatca">-- Tất cả học lực --</option>
+                <option value="gioi">Học lực Giỏi (>= 8.0)</option>
+                <option value="kha">Học lực Khá (6.5 - 7.9)</option>
+                <option value="trungbinh">Học lực Trung bình (< 6.5)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table
+              class="table table-hover table-bordered align-middle text-center mb-0"
+            >
+              <caption class="text-muted small text-end pt-2">
+                Dữ liệu mẫu học sinh phục vụ bài tập lớn Thiết kế Web
+              </caption>
+              <thead class="table-primary text-center">
+                <tr>
+                  <th scope="col" style="width: 60px">STT</th>
+                  <th scope="col" style="width: 100px">Mã HS</th>
+                  <th scope="col" class="text-start">Họ và tên</th>
+                  <th scope="col" style="width: 140px">Điểm số</th>
+                  <th scope="col" style="width: 140px">Xếp loại</th>
+                  <th scope="col" style="width: 100px">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="bangdiem">
+                <!-- Render tự động từ app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+      <div class="container small">
+        <p class="mb-1">
+          Bài tập lớn Thiết kế Web — Nhóm 8 (K66 ĐHSP Tin học, ĐH Tây Bắc)[cite:
+          164, 2]
+        </p>
+        <p class="mb-0 text-secondary">
+          Thành viên: Cà Văn Giang | Mùa A Dương | Đinh Thị Minh Ngọc | Liễu Thị
+          Khánh Thảo
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
