@@ -106,15 +106,7 @@
      border: 1px solid rgba(255, 255, 255, 0.9);
      box-shadow: 0 20px 50px rgba(61, 127, 230, 0.18);
      /* Lớp phủ xanh pastel mờ dần từ trái sang phải, để chữ dễ đọc */
-     background: linear-gradient(
-         100deg,
-         rgba(234, 243, 255, 0.95) 0%,
-         rgba(214, 232, 255, 0.8) 45%,
-         rgba(195, 220, 255, 0.3) 100%
-       ),
-       url('images/anhutb.jpg') center / cover no-repeat;
-   }
-   
+   } 
    .banner .container {
      padding-inline: clamp(1.25rem, 4vw, 3rem);
      text-align: left !important;
