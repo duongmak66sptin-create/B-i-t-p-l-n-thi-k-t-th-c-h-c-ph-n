@@ -1,25 +1,124 @@
-/* Thiết lập phông chữ nhất quán */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* ChuNhiem Hub - CSS v2
+   Tone chính: xanh dương pastel */
+
+/* 1. Biến màu & cài đặt chung */
+:root {
+    --nen: #f3f8ff;
+    --be-mat: #ffffff;
+    --vien: #d8e6f8;
+    --chu: #1f2d4d;
+    --chu-phu: #5a6b8c;
+    --xanh: #3d7fe6;
+    --xanh-dam: #24539f;
 }
 
-/* Tinh chỉnh hiệu ứng di chuột cho các thẻ Card */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--chu);
+    background-color: var(--nen);
+}
+
+.text-primary {
+    color: var(--xanh-dam) !important;
+}
+
+.text-muted {
+    color: var(--chu-phu) !important;
+}
+
+/* 2. Thanh điều hướng */
+.navbar {
+    background-color: var(--be-mat) !important;
+    border-bottom: 1px solid var(--vien);
+}
+
+.navbar .nav-link {
+    color: var(--chu-phu);
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--xanh-dam);
+}
+
+/* 3. Thẻ (card) */
 .card {
+    background-color: var(--be-mat);
+    border: 1px solid var(--vien);
+    border-radius: 16px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 0.5rem 1rem rgba(61, 127, 230, 0.12) !important;
 }
 
-/* Hộp hiển thị tên quay thưởng */
+/* 4. Nút bấm */
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--xanh);
+    --bs-btn-border-color: var(--xanh);
+    --bs-btn-hover-bg: var(--xanh-dam);
+    --bs-btn-hover-border-color: var(--xanh-dam);
+}
+
+/* 5. Huy hiệu (badge) */
+.badge.bg-primary {
+    background-color: #dbe8ff !important;
+    color: var(--xanh-dam) !important;
+}
+
+.badge.bg-success {
+    background-color: #d9f4e8 !important;
+    color: #137454 !important;
+}
+
+.badge.bg-danger {
+    background-color: #ffe1e8 !important;
+    color: #b02c4f !important;
+}
+
+/* 6. Bảng */
+.table thead th {
+    background-color: #dbe9ff !important;
+    color: #1c3f7a !important;
+}
+
+/* 7. Biểu mẫu */
+.form-label {
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    border-color: #cfe0f7;
+    border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--xanh);
+    box-shadow: 0 0 0 0.2rem rgba(61, 127, 230, 0.2);
+}
+
+/* 8. Hộp hiển thị tên quay thưởng */
 #ten-ngau-nhien {
     min-height: 48px;
     display: block;
 }
 
-/* Nhóm chia học tập */
+/* 9. Nhóm chia học tập */
 .group-card-list ol {
     padding-left: 20px;
     margin-bottom: 0;
@@ -27,4 +126,16 @@ body {
 
 .group-card-list li {
     padding: 3px 0;
+}
+
+/* 10. Chân trang */
+footer {
+    background-color: #e3eeff !important;
+    color: var(--chu-phu);
+    border-top: 1px solid var(--vien);
+}
+
+:focus-visible {
+    outline: 3px solid rgba(61, 127, 230, 0.5);
+    outline-offset: 2px;
 }
