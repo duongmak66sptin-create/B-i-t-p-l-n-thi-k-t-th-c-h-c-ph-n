@@ -9,7 +9,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <!-- Nhúng jQuery Mục 6.2, Bootstrap JS và app.js -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -66,10 +65,7 @@
           Quản lý điểm số, phân loại học sinh và bốc thăm ngẫu nhiên
         </p>
       </div>
-
-      <!-- Khối bốc thăm và thống kê nhanh -->
       <div class="row g-3 mb-4">
-        <!-- 1. Bốc thăm gọi tên ngẫu nhiên -->
         <div class="col-md-6">
           <div class="card shadow-sm h-100 border-primary">
             <div
@@ -101,8 +97,6 @@
             </div>
           </div>
         </div>
-
-        <!-- 2. Thống kê nhanh (jQuery slideToggle đóng mở) -->
         <div class="col-md-6">
           <div class="card shadow-sm h-100 border-success">
             <div class="card-body text-center">
@@ -146,8 +140,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Khối form thêm học sinh mới (Validation) -->
       <section class="card shadow-sm mb-4">
         <div class="card-header bg-white fw-bold text-primary">
           ➕ Nhập thêm điểm kiểm tra học sinh
@@ -207,8 +199,6 @@
           </form>
         </div>
       </section>
-
-      <!-- Khối tìm kiếm, lọc và bảng render dữ liệu -->
       <section class="card shadow-sm">
         <div class="card-body">
           <div class="row g-2 mb-3">
@@ -250,12 +240,15 @@
                 </tr>
               </thead>
               <tbody id="bangdiem">
-                <!-- Render tự động từ app.js -->
               </tbody>
             </table>
           </div>
         </div>
       </section>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Thông báo và lưu ý</strong>Dữ liệu học sinh bên dưới chỉ để phục vụ minh họa cho trang web. Phần kết quả học tập và xếp loại học lực cũng chỉ để tham khảo và minh họa không phải thông tin chính xác đối với một cá nhân cụ thể nào đó
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
     </main>
 
     <footer class="bg-dark text-white text-center py-3 mt-5">
