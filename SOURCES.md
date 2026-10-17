@@ -1,1 +1,13 @@
-
+1. Tài liệu
+2. Mã tham khảo
+3. Ảnh/Dữ liệu
+4. Công cụ AI
+a. AI hỗ trợ trong code css: giao diện toàn trang
+- Công cụ: Claude.ai
+- Ngày
+- Promt chính
+- Phần tiếp nhận:
+- Phần loại bỏ:
+- Cách kiểm chứng: Test code trên StackBlitz
+b. AI hỗ trợ trong
+c. AI hỗ trợ trong 
