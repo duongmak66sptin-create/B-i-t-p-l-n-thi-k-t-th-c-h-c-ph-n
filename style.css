@@ -414,3 +414,18 @@
    }
 
 .kh li:has(.xong:checked) { --c: #26a67c; }
+   /* 13. Kế hoạch năm học */
+main > img { width: 100%; max-height: 260px; object-fit: cover; margin-bottom: 1.5rem; border-radius: 20px; box-shadow: var(--bong); }
+
+.kh { padding-left: 1.5rem; margin-bottom: 2rem; list-style: none; border-left: 3px solid var(--xanh-pastel); }
+.kh li { --c: var(--xanh-dam); position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-bottom: .8rem; padding: .9rem 1.1rem; background: var(--be-mat); border: 1px solid var(--vien); border-radius: 16px; box-shadow: var(--bong); }
+.kh li::before { content: ""; position: absolute; left: -2rem; top: 1.2rem; width: 14px; height: 14px; border-radius: 50%; background: var(--c); }
+.kh b { min-width: 4.5rem; color: var(--xanh-dam); }
+.kh span { flex: 1; min-width: 220px; }
+
+.kh label { padding: .2rem .8rem; font-size: .85rem; font-weight: 600; border: 1px solid var(--vien); border-radius: 12px; cursor: pointer; }
+.kh input { position: absolute; opacity: 0; }
+.kh label:has(:checked) { background: var(--c); border-color: var(--c); color: #fff; }
+.kh label:has(:focus-visible) { outline: 3px solid rgba(61, 127, 230, .5); }
+
+.kh li:has(.xong:checked) { --c: #26a67c; }
