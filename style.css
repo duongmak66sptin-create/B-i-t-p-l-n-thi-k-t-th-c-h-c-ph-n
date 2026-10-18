@@ -560,3 +560,8 @@ main > img {
   .kh label { padding: 0.4rem 1rem; }
   .thechucnang .card-body { padding: 1.25rem; }
 }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .banner .container { animation: none; }
+  .btn, .card, .navbar .nav-link { transition: none !important; }
+}
