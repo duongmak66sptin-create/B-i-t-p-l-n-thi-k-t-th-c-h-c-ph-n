@@ -1,6 +1,6 @@
 ## Liên kết dự án
 - Website chạy trực tiếp (GitHub Pages): duongmak66sptin-create.github.io/ICT0023-K66-Nhom08-HoTroGVCN/
-- Video thuyết trình & Demo (YouTube):
+- Video thuyết trình: https://m.youtube.com/watch?si=2e-XokPWx6XATATP&v=IkrJmFG6xqI&feature=youtu.be
 - Báo cáo phân công cá nhân:Khai báo trong phần CONTRIBUTIONS.md
 - Kê khai nguồn & Liêm chính học thuật:Khai báo trong phần SOURCES.md
 1. Ý tưởng cốt lõi của Website
